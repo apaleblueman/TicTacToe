@@ -1,4 +1,5 @@
 let gameBoard;
+let used_cells=0;
 function initializeGame(){
     gameBoard = [["-","-","-"],["-","-","-"],["-","-","-"]];
     showGameBoard(gameBoard);
@@ -24,8 +25,9 @@ function mark(marker, row, col){
             marker = "O";
         }
         gameBoard[row][col] = marker;
+        used_cells++;
         showGameBoard(gameBoard);
-        checkWinner(gameBoard,row, col, marker);   
+        checkWinner(gameBoard,row, col, marker, used_cells);   
     }
     else if(gameBoard[row][col] != '-'){
         console.log("not empty cell!");
@@ -33,7 +35,7 @@ function mark(marker, row, col){
     }
 }
 
-function checkWinner(gameBoard,row, col,marker){
+function checkWinner(gameBoard,row, col,marker, used_cells){
     let winner,flag;
     for (let chks = 0; chks < 3; chks++) {
     flag = 0;
@@ -81,28 +83,31 @@ function checkWinner(gameBoard,row, col,marker){
 
     } else { flag = 0; }
 }
-
+// console.log("Reached end of for loop...");
 if(flag!=0){console.log("Winner is" + winner);}
-else{console.log("draw");}
+else{
+    if(used_cells >= 9)
+    {console.log("draw");}
+}
 }
 initializeGame();
 //draw scenario
-// mark(1, 0, 0)  // X at top-left
-// mark(0, 0, 1)  // O at top-middle
-// mark(1, 0, 2)  // X at top-right
-// mark(0, 1, 1)  // O at center
-// mark(1, 1, 0)  // X at middle-left
-// mark(0, 1, 2)  // O at middle-right
-// mark(1, 2, 1)  // X at bottom-middle
-// mark(0, 2, 0)  // O at bottom-left
-// mark(1, 2, 2)  // X at bottom-right
-//x winner scenario
 mark(1, 0, 0)  // X at top-left
 mark(0, 0, 1)  // O at top-middle
-mark(1, 1, 1)  // X at center
-mark(0, 1, 0)  // O at middle-left
 mark(1, 0, 2)  // X at top-right
-mark(0, 2, 2)  // O at bottom-right
-mark(1, 2, 0)  // X at bottom-left
+mark(0, 1, 1)  // O at center
+mark(1, 1, 0)  // X at middle-left
 mark(0, 1, 2)  // O at middle-right
-mark(1, 2, 1)  // X at bottom-middle - X wins!
+mark(1, 2, 1)  // X at bottom-middle
+mark(0, 2, 0)  // O at bottom-left
+mark(1, 2, 2)  // X at bottom-right
+//x winner scenario
+// mark(1, 0, 0)  // X at top-left
+// mark(0, 0, 1)  // O at top-middle
+// mark(1, 1, 1)  // X at center
+// mark(0, 1, 0)  // O at middle-left
+// mark(1, 0, 2)  // X at top-right
+// mark(0, 2, 2)  // O at bottom-right
+// mark(1, 2, 0)  // X at bottom-left
+// mark(0, 1, 2)  // O at middle-right
+// mark(1, 2, 1)  // X at bottom-middle - X wins!
