@@ -68,9 +68,11 @@ function checkWinner(gameBoard,row, col, marker){
     }else{ flag = 0;}
     
     }
+    //check diagonals
+    
     console.log("Winner is" + winner);   
 }
 initializeGame();
-mark(1,0,0);
-mark(1,0,1);
-mark(1,0,2);
+mark(0,0,0);
+mark(0,1,0);
+mark(0,2,0);
