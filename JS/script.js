@@ -33,7 +33,7 @@ function mark(marker, row, col){
     }
 }
 
-function checkWinner(gameBoard,row, col, marker){
+function checkWinner(gameBoard,row, col,marker){
     let winner;
     for(let chks=0;chks<3;chks++){
     let flag = 0;
@@ -59,7 +59,7 @@ function checkWinner(gameBoard,row, col, marker){
     
     //check diagnols
     for(let r=0;r<3;r++){
-        if(gameBoard[r][col] == marker){
+        if(gameBoard[r][r] == marker){
             flag++;
         }
     }
@@ -68,11 +68,10 @@ function checkWinner(gameBoard,row, col, marker){
     }else{ flag = 0;}
     
     }
-    //check diagonals
     
     console.log("Winner is" + winner);   
 }
 initializeGame();
 mark(0,0,0);
-mark(0,1,0);
-mark(0,2,0);
+mark(0,1,1);
+mark(0,2,2);
