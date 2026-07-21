@@ -26,26 +26,90 @@ const game = (()=>{
     })();
 
     const player = (() => {
+        const checkWinner = (row,col,marker)=>{
+                let winner, flag;
+                for (let chks = 0; chks < 3; chks++) {
+                    flag = 0;
+                    //check rows
+                    for (let c = 0; c < 3; c++) {
+                        if (board[row][c] == marker) {
+                            flag++;
+                        }
+                    }
+                    if (flag == 3) {
+                        winner = marker;
+                        return winner;
+
+                    } else { flag = 0; }
+
+                    //check cols
+                    for (let r = 0; r < 3; r++) {
+                        if (board[r][col] == marker) {
+                            flag++;
+                        }
+                    }
+                    if (flag == 3) {
+                        winner = marker;
+                        return winner;
+
+                    } else { flag = 0; }
+
+                    //check diagnols
+                    //top-left
+                    for (let r = 0; r < 3; r++) {
+                        if (board[r][r] == marker) {
+                            flag++;
+                        }
+                    }
+                    if (flag == 3) {
+                        winner = marker;
+                        return winner;
+
+                    } else { flag = 0; }
+                    //top-right
+                    for (let r = 0; r < 3; r++) {
+                        if (board[r][2 - r] == marker) {
+                            flag++;
+                        }
+                    }
+                    if (flag == 3) {
+                        winner = marker;
+                        return winner;
+
+                    } else { flag = 0; }
+                }
+                // console.log("Reached end of for loop...");
+                if (flag != 0) { console.log("Winner is" + winner); }
+                else {
+                    if (used_cells >= 9) {
+                        // console.log("draw");
+                        winner = "draw";
+                        return winner;
+                    }
+                }
+            }
+
+        const mark = (row,col,marker)=>{
+            if(board[row][col] == '-'){     
+                if(marker == 1){
+                    marker = "X";
+                }
+                else{
+                    marker = "O";
+                }
+                board[row][col] = marker;
+                used_cells++;
+                gameBoard.showGameBoard(board);
+                winner = checkWinner(row,col,marker);   
+                console.log(winner);
+            }
+            else if(board[row][col] != '-'){
+                console.log("not empty cell!");
+                return -1;
+            }
+        }      
         
-    const mark = (row,col,marker)=>{
-        if(board[row][col] == '-'){     
-            if(marker == 1){
-                marker = "X";
-            }
-            else{
-                marker = "O";
-            }
-            board[row][col] = marker;
-            used_cells++;
-            // gameBoard.showGameBoard(board);
-            // winner = checkWinner();   
-            // console.log(winner);
-        }
-        else if(board[row][col] != '-'){
-            console.log("not empty cell!");
-            return -1;
-        }
-    }        
+        
         return { mark }
     })();
     return {gameBoard, player};
