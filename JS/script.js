@@ -8,6 +8,7 @@ const game = (()=>{
         
         const initializeGame = () => {
             console.log("new game initialized!");
+            board = [["-", "-", "-"], ["-", "-", "-"], ["-", "-", "-"]];
             showGameBoard();
         }
 
@@ -101,7 +102,12 @@ const game = (()=>{
                 used_cells++;
                 gameBoard.showGameBoard(board);
                 winner = checkWinner(row,col,marker);   
-                console.log(winner);
+                if(winner != undefined)
+                {
+                    console.log(winner);
+                    gameBoard.initializeGame();
+                }
+                else{}
             }
             else if(board[row][col] != '-'){
                 console.log("not empty cell!");
