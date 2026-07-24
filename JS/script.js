@@ -1,8 +1,13 @@
 //Choose X or O
 // const startButton = 
-document.getElementById("start").addEventListener('click',()=>{
-    
-})
+// document.getElementById("startgame").addEventListener('click',()=>{
+//     const value = document.querySelector('input[name="radio"]:checked').value;
+//     // console.log(value)
+// })
+
+//reset game
+
+//marking a symbol and check for end round
 
 const game = (()=>{
     let board = [["-", "-", "-"], ["-", "-", "-"], ["-", "-", "-"]];

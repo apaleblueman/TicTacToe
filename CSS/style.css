@@ -53,3 +53,24 @@ button:hover
     background-color: black;
     color: white;
 }
+
+#choice{
+    display: hidden flex;
+    flex-direction: column;
+    padding: 0.2em;
+    background-color:wheat;
+    
+}
+
+#choice>form{
+    /* border: solid black 1px; */
+    display: flex;
+    flex-direction:column;
+    justify-content: center;
+    align-items: center;
+    border: none;
+}
+
+#close{
+  float: right;
+}
