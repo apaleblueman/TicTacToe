@@ -1,0 +1,55 @@
+body{
+    background-color: beige;    
+}
+.content{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.grid{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;   
+}
+.row{
+    display: flex;
+}
+.cell{
+    border: 1px solid rgb(85, 26, 26);
+    /* padding: 50px;
+    margin:20px */
+    width: 10em;
+    height: 10em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.cell>h1{
+    padding: 0;
+    margin: 0;
+}
+
+.header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+button{
+    margin: 10px;
+    padding: 5px;
+    font-size: large;
+    border: solid 1px black ;
+    background: transparent;
+}
+
+button:hover
+{
+    background-color: black;
+    color: white;
+}
