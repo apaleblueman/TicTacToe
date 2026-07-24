@@ -118,13 +118,14 @@ const game = (()=>{
         return { mark }
     })();
     return {gameBoard, player};
-})();
+});
 
 //Choose X or O
 // const startButton = 
 document.getElementById("startgame").addEventListener('click',()=>{
     const value = document.querySelector('input[name="radio"]:checked').value;
     // console.log(value)
+    game();
 })
 
 //reset game
