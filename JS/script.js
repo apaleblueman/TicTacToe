@@ -1,6 +1,7 @@
 const game = (()=>{
     let board = [["-", "-", "-"], ["-", "-", "-"], ["-", "-", "-"]];
     let used_cells = 0;
+    let starting_symbol;
     // let row = 3;
     // let col =3; 
     const gameBoard = (() => {
@@ -24,7 +25,6 @@ const game = (()=>{
         }
         return { showGameBoard, initializeGame};
     })();
-
     const player = (() => {
         const checkWinner = (row,col,marker)=>{
                 let winner, flag;
@@ -118,17 +118,20 @@ const game = (()=>{
         return { mark }
     })();
     return {gameBoard, player};
-});
+})();
 
 //Choose X or O
 // const startButton = 
 document.getElementById("startgame").addEventListener('click',()=>{
     const value = document.querySelector('input[name="radio"]:checked').value;
-    // console.log(value)
-    game();
+    //console.log(value)
+    game.gameBoard.initializeGame();
 })
 
 //reset game
-
+document.getElementById("reset").addEventListener('click',()=>{
+    //console.log(value)
+    game.gameBoard.initializeGame();
+})
 //marking a symbol and check for end round
 
