@@ -34,12 +34,14 @@
             <button id="reset">Reset</button>
         </div>
         <dialog id="choice">
+            <form>
                 <div>
                     <label for="player1">Starting player's choice? </label>
                     <label><input id="x" type="radio" name="radio" value="X" checked/>X</label>
                     <label><input id="o" type="radio" name="radio" value="O" />O</label>
                 </div>
-                <button id="startgame">Start Game</button>                    
+                <button id="startgame" type="submit">Start Game</button>                    
+                </form>
             <button command="close" commandfor="choice" id="close">cancel</button>
         </dialog>
         

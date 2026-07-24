@@ -1,14 +1,3 @@
-//Choose X or O
-// const startButton = 
-// document.getElementById("startgame").addEventListener('click',()=>{
-//     const value = document.querySelector('input[name="radio"]:checked').value;
-//     // console.log(value)
-// })
-
-//reset game
-
-//marking a symbol and check for end round
-
 const game = (()=>{
     let board = [["-", "-", "-"], ["-", "-", "-"], ["-", "-", "-"]];
     let used_cells = 0;
@@ -130,3 +119,15 @@ const game = (()=>{
     })();
     return {gameBoard, player};
 })();
+
+//Choose X or O
+// const startButton = 
+document.getElementById("startgame").addEventListener('click',()=>{
+    const value = document.querySelector('input[name="radio"]:checked').value;
+    // console.log(value)
+})
+
+//reset game
+
+//marking a symbol and check for end round
+
